@@ -29,11 +29,11 @@ DEBUG = True
 ALLOWED_HOSTS = ['*']
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://web-production-b458.up.railway.app'
+    '*'
 ],
 
 CORS_ORIGIN_WHITELIST = [
-    'https://web-production-b458.up.railway.app',
+    '*',
 ]
 
 
