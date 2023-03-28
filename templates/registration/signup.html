@@ -1,0 +1,25 @@
+{% extends 'master.html' %}
+{% block body %} 
+
+<section id="form" style="margin-left: 35%;"><!--form-->
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="signup-form"><!--sign up form-->
+                    <h2>New User Signup!</h2>
+                    <form method="post">
+                        {% csrf_token %}
+                        {% for field in form %}
+                        {{ field.errors }}
+                        <p>{{ field }}</p>
+                        {% endfor %}
+
+                        <button class="btn btn-default" type="submit">Signup</button>
+                    </form>
+                </div><!--/sign up form-->
+            </div>
+        </div>
+    </div>
+</section><!--/form-->
+
+{% endblock %}

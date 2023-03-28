@@ -1,0 +1,369 @@
+{% extends 'master.html' %}
+{% block body %}  
+
+{% comment %} <section id="slider"><!--slider-->
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12" >
+                <div id="slider-carousel" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        <li data-target="#slider-carousel" data-slide-to="0" class="active"></li>
+                        <li data-target="#slider-carousel" data-slide-to="1"></li>
+                        <li data-target="#slider-carousel" data-slide-to="2"></li>
+                    </ol>
+                    
+                    <div class="carousel-inner">
+                        <div class="item active">
+                            <div class="col-sm-6">
+                                <h1><span>T</span>-ANISHQ</h1>
+                                <h2>We konw you love diamond, so we brought for you</h2>
+                                <p>The highest quality of craftsmanship and innovation,that brings you modern, everyday designs.</p>
+
+                            </div>
+                            <div class="col-sm-6">
+                                <img src="https://www.freepnglogos.com/uploads/wedding-ring-png/wedding-ring-ring-png-ring-transparent-images-pngio-5.png" class="girl img-responsive" alt="" />
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="col-sm-6">
+                                <h1><span>T</span>-ANISHQ</h1>
+                                <h2>We konw you love diamond, so we brought for you</h2>
+                                <p>The highest quality of craftsmanship and innovation,that brings you modern, everyday designs.</p>
+
+                            </div>
+                            <div class="col-sm-6">
+                                <img src="https://www.freepnglogos.com/uploads/wedding-ring-png/wedding-ring-png-images-wedding-ring-clipart-24.png" class="girl img-responsive" alt="" />
+                            </div>
+                        </div>
+                        
+                        <div class="item">
+                            <div class="col-sm-6">
+                                <h1><span>T</span>-ANISHQ</h1>
+                                <h2>We konw you love diamond, so we brought for you</h2>
+                                <p>The highest quality of craftsmanship and innovation,that brings you modern, everyday designs.</p>
+
+
+                            </div>
+                            <div class="col-sm-6">
+                                <img src="https://www.freepnglogos.com/uploads/diamond-png/diamond-rachminov-diamonds-4.png" class="girl img-responsive" alt="" />
+                            </div>
+                        </div>
+                        
+                    </div>
+                    
+                    <a href="#slider-carousel" class="left control-carousel hidden-xs" data-slide="prev">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a href="#slider-carousel" class="right control-carousel hidden-xs" data-slide="next">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</section><!--/slider--> {% endcomment %}
+
+
+
+<div class="intro-slider-container mb-5">
+    <div class="intro-slider owl-carousel owl-theme owl-nav-inside owl-light" data-toggle="owl" 
+        data-owl-options='{
+            "dots": true,
+            "nav": false, 
+            "responsive": {
+                "1200": {
+                    "nav": true,
+                    "dots": false
+                }
+            }
+        }'>
+        <div class="intro-slide" style="background-image: url(https://banner.caratlane.com/live-images/10c2cf82f2ad425b960f2587933652a7.jpg);">
+           
+        </div><!-- End .intro-slide -->
+
+        <div class="intro-slide" style="background-image: url(https://banner.caratlane.com/live-images/4320a30823014770b49d6c35ba3508c9.jpg);">
+        </div><!-- End .intro-slide -->
+    </div><!-- End .intro-slider owl-carousel owl-simple -->
+
+    <span class="slider-loader"></span><!-- End .slider-loader -->
+</div><!-- End .intro-slider-container -->
+
+
+<div class="container">
+    <h2 class="title text-center mb-4">Explore Popular Categories</h2><!-- End .title text-center -->
+    
+    <div class="cat-blocks-container">
+        <div class="row">
+            {% for cat in category %}
+            <div class="col-6 col-sm-4 col-lg-2">
+                <a href="category/{{cat.id}}" class="cat-block">
+                    <figure>
+                        <span>
+                            <img src="{{cat.image.url}}" alt="Category image">
+                        </span>
+                    </figure>
+
+                    <h3 class="cat-block-title">{{cat.name}}</h3><!-- End .cat-block-title -->
+                </a>
+            </div><!-- End .col-sm-4 col-lg-2 -->
+            {% endfor %}\
+
+            <div class="col-6 col-sm-4 col-lg-2">
+                <a href="{% url 'diamond' %}" class="cat-block">
+                    <figure>
+                        <span>
+                            <img src="{{'http://127.0.0.1:8000/jewellery/diamondimg/polished-diamond.png'}}" alt="Category image">
+                        </span>
+                    </figure>
+
+                    <h3 class="cat-block-title">Diamond</h3><!-- End .cat-block-title -->
+                </a>
+            </div><!-- End .col-sm-4 col-lg-2 -->
+        </div><!-- End .row -->
+    </div><!-- End .cat-blocks-container -->
+</div><!-- End .container -->
+
+<div class="mb-4"></div><!-- End .mb-4 -->
+
+
+<div class="container new-arrivals">
+    <div class="heading heading-flex mb-3">
+        <div class="heading-left">
+            <h2 class="title">New Arrivals</h2><!-- End .title -->
+        </div><!-- End .heading-left -->
+    </div><!-- End .heading -->
+
+
+    <div class="tab-content tab-content-carousel just-action-icons-sm">
+
+        <div class="tab-pane p-0 fade show active" id="new-tv-tab" role="tabpanel" aria-labelledby="new-tv-tab">
+            <div class="owl-carousel owl-full carousel-equal-height carousel-with-shadow" data-toggle="owl" 
+                data-owl-options='{
+                    "nav": true, 
+                    "dots": true,
+                    "margin": 20,
+                    "loop": false,
+                    "responsive": {
+                        "0": {
+                            "items":2
+                        },
+                        "480": {
+                            "items":2
+                        },
+                        "768": {
+                            "items":3
+                        },
+                        "992": {
+                            "items":4
+                        },
+                        "1200": {
+                            "items":5
+                        }
+                    }
+                }'>
+        {% for prod in product %}
+            {% if forloop.counter <= 10 %}
+                <div class="product product-2">
+                    <figure class="product-media">
+                        <a href="product/{{prod.id}}">
+                            <img src="{{prod.image.url}}" alt="Product image" class="product-image">
+                        </a>
+                        <div class="product-action-vertical">
+                            <a href="#" class="btn-product-icon btn-wishlist" title="Add to wishlist"></a>
+                        </div><!-- End .product-action -->
+
+                        <div class="product">
+                            <a href="product/{{prod.id}}" class="btn-product" title="Add to cart" style="font-size: 10px;">&nbsp;View Product</a>
+                        </div><!-- End .product-action -->
+                    </figure><!-- End .product-media -->
+
+                    <div class="product-body">
+                        <div class="product-cat">
+                            <a href="#">{{prod.category.name}}</a>
+                        </div><!-- End .product-cat -->
+                        <h3 class="product-title"><a href="product.html">{{prod.name}}</a></h3><!-- End .product-title -->
+                        <div class="product-price">
+                            $1,199.99
+                        </div><!-- End .product-price -->
+                    </div><!-- End .product-body -->
+                </div><!-- End .product -->
+                {% endif %}
+            {% endfor %}
+            </div><!-- End .owl-carousel -->
+        </div><!-- .End .tab-pane -->
+    </div><!-- End .tab-content -->
+
+</div><!-- End .container -->
+
+
+<div class="mb-6">
+
+</div><!-- End .mb-6 -->
+            <div class="container">
+                <div class="" style="background-color: transparent">
+                    <a href="http://lokmanyasociety.org/"><img src="https://tarunbharat.com/wp-content/uploads/2023/01/9.30-banner-size-Dhanlabh-banner-size-5686-x-705-pix-marthi-scaled.jpg" alt="camera" class=""></a>
+                </div><!-- End .cta -->
+            </div><!-- End .container -->
+
+
+            <div class="mb-5"></div><!-- End .mb-5 -->
+
+            <div class="bg-light pt-5">
+                <div class="container trending-products">
+                    <div class="heading heading-flex mb-3">
+                        <div class="heading-left">
+                            <h2 class="title">Trending Diamonds</h2><!-- End .title -->
+                        </div><!-- End .heading-left -->
+                    </div><!-- End .heading -->
+
+                    <div class="row">
+                        <div class="col-xl-5col d-none d-xl-block">
+                            <div class="banner">
+                                <a href="#">
+                                    <img src="https://www.caratlane.com/blog/wp-content/uploads/2022/08/top_10_blog.jpg" alt="banner">
+                                </a>
+                            </div><!-- End .banner -->
+                        </div><!-- End .col-xl-5col -->
+
+                        <div class="col-xl-4-5col">
+                            <div class="tab-content tab-content-carousel just-action-icons-sm">
+                                <div class="tab-pane p-0 fade show active" id="trending-top-tab" role="tabpanel" aria-labelledby="trending-top-link">
+                                    <div class="owl-carousel owl-full carousel-equal-height carousel-with-shadow" data-toggle="owl" 
+                                        data-owl-options='{
+                                            "nav": true, 
+                                            "dots": false,
+                                            "margin": 20,
+                                            "loop": false,
+                                            "responsive": {
+                                                "0": {
+                                                    "items":2
+                                                },
+                                                "480": {
+                                                    "items":2
+                                                },
+                                                "768": {
+                                                    "items":3
+                                                },
+                                                "992": {
+                                                    "items":4
+                                                }
+                                            }
+                                        }'>
+                                        {% for i in diamond %}
+                                        <div class="product product-2">
+                                            <figure class="product-media">
+                                                <a href="diamond/{{i.id}}">
+                                                    <img src="{{i.image.url}}" alt="Product image" class="product-image">
+                                                </a>
+                                               
+                                            </figure><!-- End .product-media -->
+
+                                            <div class="product-body">
+                                                <div class="product-cat">
+                                                    <p><i>{{i.shape}}</i></p>
+                                                </div><!-- End .product-cat -->
+                                                <h3 class="product-title"><a href="product.html">{{i.name}}</a></h3><!-- End .product-title -->
+                                                <div class="product-price">
+                                                    &#8377; {{i.price}}
+                                                </div><!-- End .product-price -->
+                                            </div><!-- End .product-body -->
+                                        </div><!-- End .product -->
+                                        {% endfor %}
+
+                            </div><!-- End .tab-content -->
+                        </div><!-- End .col-xl-4-5col -->
+                    </div><!-- End .row -->
+                </div><!-- End .container -->
+            </div><!-- End .bg-light pt-5 pb-6 -->
+
+            <div class="mb-5"></div><!-- End .mb-5 -->
+
+
+<!--Store Locator-->
+
+<section class="py-24">
+    <div class="container">
+        <p class="mt-4 text-md leading-7 text-gray-500 font-regular text-center">Find a jewellery store near you.</p>
+        <h2 class="text-3xl sm:text-5xl leading-normal font-extrabold tracking-tight text-gray-900 text-center mb-10 sm:mb-16">Store Locator</h2>
+        <div class="row">
+            <div class="col-sm-6">
+                <img src="https://www.lokmanyasociety.org/wp-content/uploads/2022/09/branch-2.jpg" />
+            </div>
+            <div class="col-sm-6">
+                <h2 style="font-size: 35px; padding: 10px;">Come and Say Hi</h2>
+                <p style="padding: 10px; font-size: 16px;">Explore iconic traditional jewellery, gold and diamond engagement rings, silver classics, elegant accessories, and precious gifts for any occasion at our Jewellers stores across the globe.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!--Store Locator-->
+
+
+<div class="mb-5"></div><!-- End .mb-5 -->
+
+    <div class="container">
+                <hr class="mb-0">
+            </div><!-- End .container -->
+
+            <div class="icon-boxes-container bg-transparent">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-6 col-lg-3">
+                            <div class="icon-box icon-box-side">
+                                <span class="icon-box-icon text-dark">
+                                    <i class="icon-rocket"></i>
+                                </span>
+                                <div class="icon-box-content">
+                                    <h3 class="icon-box-title">Free Shipping</h3><!-- End .icon-box-title -->
+                                    <p>Orders $50 or more</p>
+                                </div><!-- End .icon-box-content -->
+                            </div><!-- End .icon-box -->
+                        </div><!-- End .col-sm-6 col-lg-3 -->
+
+                        <div class="col-sm-6 col-lg-3">
+                            <div class="icon-box icon-box-side">
+                                <span class="icon-box-icon text-dark">
+                                    <i class="icon-rotate-left"></i>
+                                </span>
+
+                                <div class="icon-box-content">
+                                    <h3 class="icon-box-title">Free Returns</h3><!-- End .icon-box-title -->
+                                    <p>Within 30 days</p>
+                                </div><!-- End .icon-box-content -->
+                            </div><!-- End .icon-box -->
+                        </div><!-- End .col-sm-6 col-lg-3 -->
+
+                        <div class="col-sm-6 col-lg-3">
+                            <div class="icon-box icon-box-side">
+                                <span class="icon-box-icon text-dark">
+                                    <i class="icon-info-circle"></i>
+                                </span>
+
+                                <div class="icon-box-content">
+                                    <h3 class="icon-box-title">Get 20% Off 1 Item</h3><!-- End .icon-box-title -->
+                                    <p>when you sign up</p>
+                                </div><!-- End .icon-box-content -->
+                            </div><!-- End .icon-box -->
+                        </div><!-- End .col-sm-6 col-lg-3 -->
+
+                        <div class="col-sm-6 col-lg-3">
+                            <div class="icon-box icon-box-side">
+                                <span class="icon-box-icon text-dark">
+                                    <i class="icon-life-ring"></i>
+                                </span>
+
+                                <div class="icon-box-content">
+                                    <h3 class="icon-box-title">We Support</h3><!-- End .icon-box-title -->
+                                    <p>24/7 amazing services</p>
+                                </div><!-- End .icon-box-content -->
+                            </div><!-- End .icon-box -->
+                        </div><!-- End .col-sm-6 col-lg-3 -->
+                    </div><!-- End .row -->
+                </div><!-- End .container -->
+            </div><!-- End .icon-boxes-container -->
+
+        </div>
+{% endblock %}

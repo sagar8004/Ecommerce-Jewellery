@@ -1,0 +1,116 @@
+{% extends 'master.html' %}
+{% block body %}  
+
+
+{% comment %} <form method="GET">
+    {{ form.as_p }}
+    <input type="submit">
+    <a href={% url 'diamond' %}>Clear</a>
+
+    <label>Name</label>
+    <p>{{ form.price}}</p>
+</form> {% endcomment %}
+
+
+
+
+<main class="main">
+    <div class="page-header text-center" style="background-image: url('https://cdn.shopify.com/s/files/1/0441/4020/0089/articles/Diamond-Banner-02_1650x.jpg?v=1605760011')">
+        <div class="container">
+            <h1 class="page-title">Diamonds</span></h1>
+        </div><!-- End .container -->
+    </div><!-- End .page-header -->
+    <nav aria-label="breadcrumb" class="breadcrumb-nav mb-3">
+        <div class="container">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item">Diamond</li>
+            </ol>
+        </div><!-- End .container -->
+    </nav><!-- End .breadcrumb-nav -->
+
+    <div class="page-content">
+        <div class="container">
+            <div class="row">
+                <aside class="col-lg-3">
+                    <div class="sidebar">
+                        <div class="widget widget-cats">
+                            <h3 class="widget-title">Filter</h3><!-- End .widget-title -->
+                            <form>
+                                <label>Shape: {{form.shape}}</label>
+                                <label>Carat: {{form.carat}}</label>
+                                <label>Color: {{form.color}}</label>
+                                <label>Price: {{form.price}}</label><br/>
+                                <input type="submit">
+                                <a href={% url 'diamond' %}>Clear</a>
+                               </form>
+                        </div><!-- End .widget -->
+
+                       
+                    </div><!-- End .sidebar -->
+                </aside><!-- End .col-lg-3 -->
+
+                <div class="col-lg-9">
+                    <div class="entry-container max-col-2" data-layout="fitRows">
+                        {% if items %}
+                        {% for i in items %}
+                        <div class="entry-item col-sm-4">
+                            <article class="entry entry-grid">
+                                <figure class="entry-media">
+                                    <a href="diamond/{{i.id}}">
+                                        <img src="{{i.image.url}}" alt="image desc">
+                                    </a>
+                                </figure><!-- End .entry-media -->
+
+                                <div class="entry-body">
+                                    <div class="entry-meta">
+                                        
+                                    </div><!-- End .entry-meta -->
+
+                                    <h2 class="entry-title">
+                                        <a href="single.html">{{i.name}}</a>
+                                    </h2><!-- End .entry-title -->
+
+                                    <div class="entry-cats">
+                                        <h4>&#8377; {{i.price}}</h4>
+                                    </div><!-- End .entry-cats -->
+                                    
+                                </div><!-- End .entry-body -->
+
+                            </article><!-- End .entry -->
+                        </div><!-- End .entry-item -->
+                        {% endfor %}
+                        {% else %}
+                        <h3>No Product Found</h3>
+
+                        {% endif %}
+                    </div><!-- End .entry-container -->
+
+                    <nav aria-label="Page navigation">
+                        <ul class="pagination">
+                            {% if items.has_previous %}
+                            <li class="page-item">
+                                <a class="page-link page-link-prev" href="{% url 'diamond' %}?page={{items.previous_page_number}}" aria-label="Previous" tabindex="-1" aria-disabled="true">
+                                    <span aria-hidden="true"><i class="icon-long-arrow-left"></i></span>Prev
+                                </a>
+                            </li>
+                            {% endif %}
+                            {% if items.has_next %}
+                            <li class="page-item">
+                                <a class="page-link page-link-next" href="{% url 'diamond' %}?page={{items.next_page_number}}" aria-label="Next">
+                                    Next <span aria-hidden="true"><i class="icon-long-arrow-right"></i></span>
+                                </a>
+                            </li>
+                            {% endif %}
+                        </ul>
+                    </nav>
+                    <p>Showing page {{page_num}} of pages {{all_page}}</p>
+
+                </div><!-- End .col-lg-9 -->
+            </div><!-- End .row -->
+        </div><!-- End .container -->
+    </div><!-- End .page-content -->
+</main><!-- End .main -->
+
+
+{% endblock %}

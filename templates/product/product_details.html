@@ -1,0 +1,528 @@
+{% extends 'master.html' %}
+{% block body %}  
+
+	{% comment %} <section>
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-3">
+					<div class="left-sidebar">
+                    <h2>Category</h2>
+                    <div class="panel-group category-products" id="accordian"><!--category-productsr-->
+                        {% for cat in category %}
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#accordian" href="#{{cat.id}}">
+                                        <span class="badge pull-right"><i class="fa fa-plus"></i></span>
+                                        {{cat.name}}
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="{{cat.id}}" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <ul>
+                                        {% for i in cat.sub_category_set.all %}
+                                        <li><a href="/?category={{i.id}}">{{i.name}} </a></li>
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                    </div><!--/category-products-->
+					
+						<div class="brands_products"><!--brands_products-->
+							<h2>Brands</h2>
+							<div class="brands-name">
+								<ul class="nav nav-pills nav-stacked">
+									<li><a href=""> <span class="pull-right">(50)</span>Acne</a></li>
+									<li><a href=""> <span class="pull-right">(56)</span>Grüne Erde</a></li>
+									<li><a href=""> <span class="pull-right">(27)</span>Albiro</a></li>
+									<li><a href=""> <span class="pull-right">(32)</span>Ronhill</a></li>
+									<li><a href=""> <span class="pull-right">(5)</span>Oddmolly</a></li>
+									<li><a href=""> <span class="pull-right">(9)</span>Boudestijn</a></li>
+									<li><a href=""> <span class="pull-right">(4)</span>Rösch creative culture</a></li>
+								</ul>
+							</div>
+						</div><!--/brands_products-->
+						
+						<div class="price-range"><!--price-range-->
+							<h2>Price Range</h2>
+							<div class="well">
+								 <input type="text" class="span2" value="" data-slider-min="0" data-slider-max="600" data-slider-step="5" data-slider-value="[250,450]" id="sl2" ><br />
+								 <b>$ 0</b> <b class="pull-right">$ 600</b>
+							</div>
+						</div><!--/price-range-->
+						
+						<div class="shipping text-center"><!--shipping-->
+							<img src="images/home/shipping.jpg" alt="" />
+						</div><!--/shipping-->
+						
+					</div>
+				</div>
+				
+				<div class="col-sm-9 padding-right">
+					<div class="product-details"><!--product-details-->
+						<div class="col-sm-5">
+							<div class="view-product">
+								<img src="/{{product.image}}" alt="" />
+								<h3>ZOOM</h3>
+							</div>
+							<div id="similar-product" class="carousel slide" data-ride="carousel">
+								
+								  <!-- Wrapper for slides -->
+								    <div class="carousel-inner">
+										<div class="item active">
+										  <a href=""><img src="images/product-details/similar1.jpg" alt=""></a>
+										  <a href=""><img src="images/product-details/similar2.jpg" alt=""></a>
+										  <a href=""><img src="images/product-details/similar3.jpg" alt=""></a>
+										</div>
+										<div class="item">
+										  <a href=""><img src="images/product-details/similar1.jpg" alt=""></a>
+										  <a href=""><img src="images/product-details/similar2.jpg" alt=""></a>
+										  <a href=""><img src="images/product-details/similar3.jpg" alt=""></a>
+										</div>
+										<div class="item">
+										  <a href=""><img src="images/product-details/similar1.jpg" alt=""></a>
+										  <a href=""><img src="images/product-details/similar2.jpg" alt=""></a>
+										  <a href=""><img src="images/product-details/similar3.jpg" alt=""></a>
+										</div>
+										
+									</div>
+
+								  <!-- Controls -->
+								  <a class="left item-control" href="#similar-product" data-slide="prev">
+									<i class="fa fa-angle-left"></i>
+								  </a>
+								  <a class="right item-control" href="#similar-product" data-slide="next">
+									<i class="fa fa-angle-right"></i>
+								  </a>
+							</div>
+
+						</div>
+						<div class="col-sm-7">
+							<div class="product-information"><!--/product-information-->
+								<img src="images/product-details/new.jpg" class="newarrival" alt="" />
+								<h2>{{product.name}}</p>
+								<img src="images/product-details/rating.png" alt="" />
+								<span>
+									<span>RS. {{product.price}}</span>
+									<label>Quantity:</label>
+									<input type="text" value="3" />
+									<button type="button" class="btn btn-fefault cart">
+										<i class="fa fa-shopping-cart"></i>
+										Add to cart
+									</button>
+								</span>
+								<p><b>Availability:</b> In Stock</p>
+								<p><b>Condition:</b> New</p>
+								<p><b>Brand:</b> E-SHOPPER</p>
+								<a href=""><img src="images/product-details/share.png" class="share img-responsive"  alt="" /></a>
+							</div><!--/product-information-->
+						</div>
+					</div><!--/product-details-->
+					
+					<div class="category-tab shop-details-tab"><!--category-tab-->
+						<div class="col-sm-12">
+							<ul class="nav nav-tabs">
+								<li><a href="#details" data-toggle="tab">Details</a></li>
+								<li><a href="#companyprofile" data-toggle="tab">Company Profile</a></li>
+								<li><a href="#tag" data-toggle="tab">Tag</a></li>
+								<li class="active"><a href="#reviews" data-toggle="tab">Reviews (5)</a></li>
+							</ul>
+						</div>
+						<div class="tab-content">
+							<div class="tab-pane fade" id="details" >
+								<div class="col-sm-3">
+									<div class="product-image-wrapper">
+										<div class="single-products">
+											<div class="productinfo text-center">
+												<img src="images/home/gallery1.jpg" alt="" />
+												<h2>$56</h2>
+												<p>Easy Polo Black Edition</p>
+												<button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-sm-3">
+									<div class="product-image-wrapper">
+										<div class="single-products">
+											<div class="productinfo text-center">
+												<img src="images/home/gallery2.jpg" alt="" />
+												<h2>$56</h2>
+												<p>Easy Polo Black Edition</p>
+												<button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-sm-3">
+									<div class="product-image-wrapper">
+										<div class="single-products">
+											<div class="productinfo text-center">
+												<img src="images/home/gallery3.jpg" alt="" />
+												<h2>$56</h2>
+												<p>Easy Polo Black Edition</p>
+												<button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-sm-3">
+									<div class="product-image-wrapper">
+										<div class="single-products">
+											<div class="productinfo text-center">
+												<img src="images/home/gallery4.jpg" alt="" />
+												<h2>$56</h2>
+												<p>Easy Polo Black Edition</p>
+												<button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							
+							<div class="tab-pane fade" id="companyprofile" >
+								<div class="col-sm-3">
+									<div class="product-image-wrapper">
+										<div class="single-products">
+											<div class="productinfo text-center">
+												<img src="images/home/gallery1.jpg" alt="" />
+												<h2>$56</h2>
+												<p>Easy Polo Black Edition</p>
+												<button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-sm-3">
+									<div class="product-image-wrapper">
+										<div class="single-products">
+											<div class="productinfo text-center">
+												<img src="images/home/gallery3.jpg" alt="" />
+												<h2>$56</h2>
+												<p>Easy Polo Black Edition</p>
+												<button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-sm-3">
+									<div class="product-image-wrapper">
+										<div class="single-products">
+											<div class="productinfo text-center">
+												<img src="images/home/gallery2.jpg" alt="" />
+												<h2>$56</h2>
+												<p>Easy Polo Black Edition</p>
+												<button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-sm-3">
+									<div class="product-image-wrapper">
+										<div class="single-products">
+											<div class="productinfo text-center">
+												<img src="images/home/gallery4.jpg" alt="" />
+												<h2>$56</h2>
+												<p>Easy Polo Black Edition</p>
+												<button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							
+							<div class="tab-pane fade" id="tag" >
+								<div class="col-sm-3">
+									<div class="product-image-wrapper">
+										<div class="single-products">
+											<div class="productinfo text-center">
+												<img src="images/home/gallery1.jpg" alt="" />
+												<h2>$56</h2>
+												<p>Easy Polo Black Edition</p>
+												<button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-sm-3">
+									<div class="product-image-wrapper">
+										<div class="single-products">
+											<div class="productinfo text-center">
+												<img src="images/home/gallery2.jpg" alt="" />
+												<h2>$56</h2>
+												<p>Easy Polo Black Edition</p>
+												<button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-sm-3">
+									<div class="product-image-wrapper">
+										<div class="single-products">
+											<div class="productinfo text-center">
+												<img src="images/home/gallery3.jpg" alt="" />
+												<h2>$56</h2>
+												<p>Easy Polo Black Edition</p>
+												<button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-sm-3">
+									<div class="product-image-wrapper">
+										<div class="single-products">
+											<div class="productinfo text-center">
+												<img src="images/home/gallery4.jpg" alt="" />
+												<h2>$56</h2>
+												<p>Easy Polo Black Edition</p>
+												<button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							
+							<div class="tab-pane fade active in" id="reviews" >
+								<div class="col-sm-12">
+									<ul>
+										<li><a href=""><i class="fa fa-user"></i>EUGEN</a></li>
+										<li><a href=""><i class="fa fa-clock-o"></i>12:41 PM</a></li>
+										<li><a href=""><i class="fa fa-calendar-o"></i>31 DEC 2014</a></li>
+									</ul>
+									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+									<p><b>Write Your Review</b></p>
+									
+									<form action="#">
+										<span>
+											<input type="text" placeholder="Your Name"/>
+											<input type="email" placeholder="Email Address"/>
+										</span>
+										<textarea name="" ></textarea>
+										<b>Rating: </b> <img src="images/product-details/rating.png" alt="" />
+										<button type="button" class="btn btn-default pull-right">
+											Submit
+										</button>
+									</form>
+								</div>
+							</div>
+							
+						</div>
+					</div><!--/category-tab-->
+					
+					
+				</div>
+			</div>
+		</div>
+	</section> {% endcomment %}
+	
+
+	<main class="main">
+		<nav aria-label="breadcrumb" class="breadcrumb-nav border-0 mb-0">
+			<div class="container d-flex align-items-center">
+				<ol class="breadcrumb">
+					<li class="breadcrumb-item"><a href="index.html">Home</a></li>
+					<li class="breadcrumb-item"><a href="#">Products</a></li>
+					<li class="breadcrumb-item active" aria-current="page">{{product.category.name}}</li>
+				</ol>
+			</div><!-- End .container -->
+		</nav><!-- End .breadcrumb-nav -->
+
+		<div class="page-content">
+			<div class="container">
+				<div class="product-details-top">
+					<div class="row">
+						<div class="col-md-6">
+							<div class="product-gallery" style="padding: 15px;">
+								<div class="row">
+									<figure class="product-main-image">
+										<img id="product-zoom" src="{{product.image.url}}" alt="product image" />
+									</figure><!-- End .product-main-image -->
+								</div><!-- End .row -->
+							</div><!-- End .product-gallery -->
+						</div><!-- End .col-md-6 -->
+
+						<div class="col-md-6">
+							<div class="product-details">
+								<h1 class="product-title">{{product.name}}</h1><!-- End .product-title -->
+
+								<div class="ratings-container">
+									<p><i>{{product.sub_category.name}}</i></p>
+								</div><!-- End .rating-container -->
+
+								<div class="product-price">
+									&#8377; {{product.price}}
+								</div><!-- End .product-price -->
+
+								<div class="product-content">
+									<p>{{product.meta_title}}</p>
+								</div><!-- End .product-content -->
+
+								<div class="details-filter-row details-row-size">
+									<label>Color:</label>
+
+									<div class="product-nav product-nav-thumbs">
+										<p>{{product.color}}</p>
+									</div><!-- End .product-nav -->
+								</div><!-- End .details-filter-row -->
+
+								<div class="details-filter-row details-row-size">
+									<label>Available: </label>
+
+									<div class="product-nav product-nav-thumbs">
+										{% if product.status == True %}
+										<p style="color: Green; font-weight: 500;"> &nbsp; In Stock</p>
+										{% else %}
+										<p style="color: red; font-weight: 500;"> &nbsp; Out of Stock</p>
+										{% endif %}
+									</div><!-- End .product-nav -->
+								</div><!-- End .details-filter-row -->
+
+								<div class="product-details-footer">
+									<div class="product-cat">
+										<span>Category:</span>
+										<a href="#">{{product.category.name}}</a>,
+									</div><!-- End .product-cat -->
+
+								</div><!-- End .product-details-footer -->
+							</div><!-- End .product-details -->
+						</div><!-- End .col-md-6 -->
+					</div><!-- End .row -->
+				</div><!-- End .product-details-top -->
+
+				<div class="accordion accordion-plus product-details-accordion" id="product-accordion" style="margin-top: -100px;">
+					<div class="card card-box card-sm">
+						<div class="card-header" id="product-desc-heading">
+							<h2 class="card-title">
+								<a class="collapsed" role="button" data-toggle="collapse" href="#product-accordion-desc" aria-expanded="false" aria-controls="product-accordion-desc">
+									Description
+								</a>
+							</h2>
+						</div><!-- End .card-header -->
+						<div id="product-accordion-desc" class="collapse" aria-labelledby="product-desc-heading" data-parent="#product-accordion">
+							<div class="card-body">
+								<div class="product-desc-content">
+									<p>{{product.desc}}</p>
+
+								</div><!-- End .product-desc-content -->
+							</div><!-- End .card-body -->
+						</div><!-- End .collapse -->
+					</div><!-- End .card -->
+
+					<div class="card card-box card-sm">
+						<div class="card-header" id="product-info-heading">
+							<h2 class="card-title">
+								<a class="collapsed" role="button" data-toggle="collapse" href="#product-accordion-info" aria-expanded="false" aria-controls="product-accordion-info">
+									Additional Information
+								</a>
+							</h2>
+						</div><!-- End .card-header -->
+						<div id="product-accordion-info" class="collapse" aria-labelledby="product-info-heading" data-parent="#product-accordion">
+							<div class="card-body">
+								<div class="product-desc-content">
+									<p>{{product.add_info}}</p>
+								</div><!-- End .product-desc-content -->
+							</div><!-- End .card-body -->
+						</div><!-- End .collapse -->
+					</div><!-- End .card -->
+
+
+					<div class="card card-box card-sm">
+						<div class="card-header" id="product-review-heading">
+							<h2 class="card-title">
+								<a class="collapsed" role="button" data-toggle="collapse" href="#product-accordion-review" aria-expanded="false" aria-controls="product-accordion-review">
+									Shipping & Returns
+								</a>
+							</h2>
+						</div><!-- End .card-header -->
+						<div id="product-accordion-review" class="collapse" aria-labelledby="product-review-heading" data-parent="#product-accordion">
+							<div class="card-body">
+								<div class="reviews">
+									<div class="review">
+										<div class="row no-gutters">
+											<p>We deliver to over 100 countries around the world. For full details of the delivery options we offer, please view our Delivery information
+												We hope you’ll love every purchase, but if you ever need to return an item you can do so within a month of receipt. For full details of how to make a return, please view our Returns information</p>
+										</div><!-- End .row -->
+									</div><!-- End .review -->
+								</div><!-- End .reviews -->
+							</div><!-- End .card-body -->
+						</div><!-- End .collapse -->
+					</div><!-- End .card -->
+				</div><!-- End .accordion -->
+
+				<h2 class="title text-center mb-4">You May Also Like</h2><!-- End .title text-center -->
+
+				<div class="owl-carousel owl-simple carousel-equal-height carousel-with-shadow" data-toggle="owl" 
+					data-owl-options='{
+						"nav": false, 
+						"dots": true,
+						"margin": 20,
+						"loop": false,
+						"responsive": {
+							"0": {
+								"items":1
+							},
+							"480": {
+								"items":2
+							},
+							"768": {
+								"items":3
+							},
+							"992": {
+								"items":4
+							},
+							"1200": {
+								"items":4,
+								"nav": true,
+								"dots": false
+							}
+						}
+					}'>
+					{% for i in random_object %}
+					<div class="product product-7 text-center">
+						<figure class="product-media">
+							<span class="product-label label-new" style="display: none;"></span>
+							<a href="{{i.id}}">
+								<img src="{{i.image.url}}" alt="Product image" class="product-image">
+							</a>
+
+							<div class="product-action">
+								<a href="{{i.id}}" class="btn-product btn-"><span>View Product</span></a>
+							</div><!-- End .product-action -->
+						</figure><!-- End .product-media -->
+
+						<div class="product-body">
+							<div class="product-cat">
+								<a href="#">{{i.category.name}}</a>
+							</div><!-- End .product-cat -->
+							<h3 class="product-title"><a href="">{{i.name}}</h3><!-- End .product-title -->
+							<div class="product-price">
+								&#8377; {{i.price}}
+							</div><!-- End .product-price -->
+
+							<div class="product-nav product-nav-thumbs" style="display: none;">
+								<a href="#" class="active">
+									<img src="assets/images/products/product-4-thumb.jpg" alt="product desc">
+								</a>
+								<a href="#">
+									<img src="assets/images/products/product-4-2-thumb.jpg" alt="product desc">
+								</a>
+
+								<a href="#">
+									<img src="assets/images/products/product-4-3-thumb.jpg" alt="product desc">
+								</a>
+							</div><!-- End .product-nav -->
+						</div><!-- End .product-body -->
+					</div><!-- End .product -->
+					{% endfor %}
+				</div><!-- End .owl-carousel -->
+			</div><!-- End .container -->
+		</div><!-- End .page-content -->
+	</main><!-- End .main -->
+
+
+
+
+	{% endblock %}
