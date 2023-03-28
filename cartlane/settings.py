@@ -28,15 +28,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
-CSRF_TRUSTED_ORIGINS = [
-    '*'
-],
-
-CORS_ORIGIN_WHITELIST = [
-    '*',
-]
-
-
 # Application definition
 
 INSTALLED_APPS = [
